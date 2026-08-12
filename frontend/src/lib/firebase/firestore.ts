@@ -1,6 +1,6 @@
 import { collection, doc, type CollectionReference, type DocumentData } from 'firebase/firestore'
 import { getClientDb } from './client'
-import type { UserProfile } from '@/types/firestore'
+import type { TeamMember, UserProfile } from '@/types/firestore'
 import type { Note } from '@/types/firestore'
 
 /**
@@ -27,4 +27,8 @@ export function userDoc(uid: string) {
 
 export function getNotesCollection() {
   return typedCollection<Note>('notes')
+}
+
+export function getTeamMembers() {
+    return typedCollection<TeamMember>('team')
 }
