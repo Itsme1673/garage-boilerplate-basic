@@ -13,20 +13,22 @@ export function TeamList() {
   if (loading) return <LoadingSpinner />
   if (team.length === 0) return <EmptyState title="No Team yet" />
 
-  
-
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="max-w-2xl space-y-6">
+    <ul className="space-y-4 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
       {team.map((member) => (
-        <li key={member.name} className="rounded-lg border p-4">
+        <li key={member.name}>
           <h3 className="text-xl font-semibold">{member.name}</h3>
           <img src={member.photoURL || 'default-profile.svg'} alt={member.name} className="h-50 w-50 rounded-full m-4" />
-          <p>Role: {member.role}</p>
-          <p>Email: {member.email}</p>
-          <p>About Me: {member.about}</p>
-          
+          <p className="text-xs font-medium tracking-wide text-zinc-400 uppercase">ROLE </p>
+          <p className="mt-1 text-sm">{member.role}</p>
+          <p className="text-xs font-medium tracking-wide text-zinc-400 uppercase">EMAIL</p>
+          <p className="mt-1 text-sm">{member.email}</p>
+          <p className="text-xs font-medium tracking-wide text-zinc-400 uppercase">ABOUT</p>
+          <p className="mt-1 text-sm">{member.about}</p>
         </li>
       ))}
     </ul>
+    </div>
   )
 }

@@ -36,8 +36,6 @@ export default async function DashboardPage() {
           </div>
         ))}
       </div>
-
-      <TeamList />
     </div>
   )
 }
