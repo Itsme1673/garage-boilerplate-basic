@@ -13,14 +13,17 @@ export function TeamList() {
   if (loading) return <LoadingSpinner />
   if (team.length === 0) return <EmptyState title="No Team yet" />
 
+  
+
   return (
     <ul className="space-y-2">
       {team.map((member) => (
         <li key={member.name} className="rounded-lg border p-4">
           <h3 className="font-medium">{member.name}</h3>
-          <p className="text-sm text-zinc-500">{member.role}</p>
-          <p className="text-sm text-zinc-500">{member.email}</p>
-          <p className="text-sm text-zinc-500">{member.about}</p>
+          <img src={member.photoURL || 'default-profile.svg'} alt={member.name} className="h-50 w-50" />
+          <p>Role: {member.role}</p>
+          <p>Email: {member.email}</p>
+          <p>About Me: {member.about}</p>
           
         </li>
       ))}
