@@ -6,9 +6,30 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
+import { X } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
+
+function showErrorToast(title: string, tip: string)
+{
+  toast.custom((t) => (
+    <div className="w-full max-w-sm rounded-lg border border-red-200 bg-red-50 p-6 shadow-sm">
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-lg font-semibold text-red-900">{title}</h3>
+        <button
+          type="button"
+          onClick={() => toast.dismiss(t)}
+          aria-label="Dismiss"
+          className="text-red-400 hover:text-red-600"
+        >
+          <X className="size-4" />
+        </button>
+      </div>
+      <p className="mt-2 text-sm text-red-700">{tip}</p>
+    </div>
+  ))
+}
 
 export default function SignInPage() {
   const router = useRouter()
@@ -45,9 +66,9 @@ export default function SignInPage() {
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
-        toast.error('Please verify your email before signing in.')
+        showErrorToast('Email not verified', 'Please verify your email before signing in.')
       } else {
-        toast.error('Invalid email or password')
+        showErrorToast('Invalid credentials', 'The email or password you entered is incorrect.')
       }
     }
   }
@@ -57,15 +78,15 @@ export default function SignInPage() {
       await signInWithGoogle()
       router.replace('/dashboard')
     } catch {
-      toast.error('Google sign-in failed. Please try again.')
+      showErrorToast('Google sign-in failed', 'Please try again.')
     }
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="text-4xl font-bold tracking-tight text-zinc-900">Login</h1>
+      <h1 className="text-6xl font-bold tracking-tight text-zinc-900">Login</h1>
 
-      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm md:mt-24 md:-mr-12 md:translate-x-40">
         <button
           type="button"
           onClick={handleGoogleSignIn}
