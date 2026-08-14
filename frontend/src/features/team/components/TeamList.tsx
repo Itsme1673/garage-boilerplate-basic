@@ -1,11 +1,7 @@
 'use client'
 
-import { useCollection } from '@/hooks/useFirestore'
-import { getTeamMembers } from '@/lib/firebase/firestore'
-import { LoadingSpinner } from '@/components/shared/LoadingSpinner'
 import { EmptyState } from '@/components/shared/EmptyState'
-import { TeamMember } from '@/types';
-import { PageHeader } from '@/components/layout/PageHeader';
+import { TeamMember } from '@/types/firestore';
 
 function getTeam(): TeamMember[]{
     return [
