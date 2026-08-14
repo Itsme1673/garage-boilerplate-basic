@@ -86,11 +86,11 @@ export default function SignInPage() {
     <div className="space-y-6">
       <h1 className="text-6xl font-bold tracking-tight text-zinc-900">Login</h1>
 
-      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm md:mt-24 md:-mr-12 md:translate-x-40">
+      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm md:mt-24 md:-mr-12 md:translate-x-[345px]">
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="flex w-full items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
+          className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -170,7 +170,7 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full cursor-pointer rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? 'Signing in…' : 'Sign in'}
           </button>
