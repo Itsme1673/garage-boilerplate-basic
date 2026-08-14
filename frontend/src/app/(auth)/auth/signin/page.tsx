@@ -45,7 +45,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace('/dashboard')
+      router.replace('/team')
     }
   }, [loading, user, router])
 
@@ -62,7 +62,7 @@ export default function SignInPage() {
     try {
       await signInWithEmail(data.email, data.password)
       toast.success('Signed in successfully')
-      router.replace('/dashboard')
+      router.replace('/team')
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
@@ -76,7 +76,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/dashboard')
+      router.replace('/team')
     } catch {
       showErrorToast('Google sign-in failed', 'Please try again.')
     }
@@ -90,7 +90,7 @@ export default function SignInPage() {
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="flex w-full items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
+          className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -170,7 +170,7 @@ export default function SignInPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full cursor-pointer rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? 'Signing in…' : 'Sign in'}
           </button>

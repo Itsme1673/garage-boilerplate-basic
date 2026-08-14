@@ -44,7 +44,7 @@ export default function SignUpPage() {
 
   useEffect(() => {
     if (!loading && !isSubmitting && user) {
-      router.replace('/dashboard')
+      router.replace('/team')
     }
   }, [loading, isSubmitting, user, router])
 
@@ -53,7 +53,7 @@ export default function SignUpPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/dashboard')
+      router.replace('/team')
     } catch {
       showErrorToast('Google sign-in failed', 'Please try again.')
     }
@@ -80,7 +80,7 @@ export default function SignUpPage() {
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="flex w-full items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
+          className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 shadow-sm transition-colors hover:bg-zinc-50"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -200,7 +200,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full cursor-pointer rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? 'Creating account…' : 'Create account'}
           </button>
