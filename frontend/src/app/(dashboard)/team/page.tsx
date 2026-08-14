@@ -10,7 +10,7 @@ export default async function TeamPage() {
   await requireAuth()
   return (
     <div className="space-y-6">
-        <PageHeader title="Team 70" description="Creating a GUI Library for Python that renders in the browser, used by novice to advanced programmers alike" />
+        <PageHeader title="Teaching Team"/>
         <TeamList />
     </div>
   )
