@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getServerSession } from '@/actions/auth.actions'
 import { adminDb } from '@/lib/firebase/admin'
+import { TeamList } from '@/features/team/components/TeamList'
 
 export const metadata: Metadata = {
   title: 'Dashboard',

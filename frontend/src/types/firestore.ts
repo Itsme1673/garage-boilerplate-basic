@@ -32,4 +32,11 @@ export interface UserProfile {
   _schemaVersion: 1
 }
 
+export interface TeamMember {
+    name: string,
+    email: string,
+    role: string,
+    about: string,
+}
+
 export type CreateUserProfileInput = Omit<UserProfile, 'createdAt' | 'updatedAt'>

@@ -46,4 +46,24 @@ This enables **lazy migration** — when a document is read, check `_schemaVersi
 
 ---
 
+## `team` collection
+
+**Path:** `/team/{teamId}`
+**Access:** Admin only.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `uid` | `string` | Yes | Firebase Auth UID (same as document ID) |
+| `name` | `string` | Yes | Team member's Name |
+| `email` | `string` | Yes | Team member's email |
+| `role` | `string \| null` | Yes | Team member's role |
+| `about` | `string` | Yes | About section of the user |
+| `photoUrl` | `string \| null` | Yes | Link to a photo of the user. If null a default is used |
+| `_schemaVersion` | `1` | Yes | Schema version for lazy migration |
+
+**Creation:** Created by hand to display members of the team.
+**Deletion:** Hard-delete is disabled in security rules. Use `deletedAt` field for soft-delete.
+
+---
+
 <!-- Add new collection schemas below using the /firebase-collection skill -->
