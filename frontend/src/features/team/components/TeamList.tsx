@@ -42,16 +42,13 @@ export function TeamList() {
   if (team.length === 0) return <EmptyState title="No Team yet" />
   
   return (
-    <ul className="flex gap-6 ">
+    <ul className="flex felx-wrap gap-6 text-center">
       {team.map((member) => (
-        <li key={member.name} className="space-y-6  rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+        <li key={member.name} className="space-y-6 flex-1 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <img src={`/team/${member.name}.jpg`} alt={member.name} className="h-50 w-50 rounded-full m-4 mx-auto" onError={(e) => e.currentTarget.src='team/default-profile.svg'}/>
           <h3 className="text-lg font-semibold">{member.name}</h3>
-          <img src={`/team/${member.name}.jpg`} alt={member.name} className="h-50 w-50 rounded-full m-4" onError={(e) => e.currentTarget.src='team/default-profile.svg'}/>
-          <p className="text-sm font-medium tracking-wide text-zinc-400 uppercase">ROLE</p>
-          <p className="mt-1 text-sm ">{member.role}</p>
-          <p className="text-sm font-medium tracking-wide text-zinc-400 uppercase">EMAIL</p>
+          <p className="mt-1 text-sm font-semibold ">{member.role}</p>
           <p className="mt-1 text-sm">{member.email}</p>
-          <p className="text-sm font-medium tracking-wide text-zinc-400 uppercase">About</p>
           <p className="mt-1 text-sm">{member.about}</p>
         </li>
       ))}
