@@ -86,7 +86,7 @@ export default function SignInPage() {
     <div className="space-y-6">
       <h1 className="text-6xl font-bold tracking-tight text-zinc-900">Login</h1>
 
-      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm md:mt-24 md:-mr-12 md:translate-x-40">
+      <div className="space-y-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm md:mt-24 md:-mr-12 md:translate-x-[345px]">
         <button
           type="button"
           onClick={handleGoogleSignIn}
