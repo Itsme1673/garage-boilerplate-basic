@@ -1,6 +1,8 @@
 'use client'
 
 import { EmptyState } from '@/components/shared/EmptyState'
+import { LoadingSpinner } from '@/components/shared/LoadingSpinner';
+import { useAuth } from '@/hooks/useAuth';
 import { TeamMember } from '@/types/firestore';
 
 function getTeam(): TeamMember[]{
@@ -33,6 +35,8 @@ function getTeam(): TeamMember[]{
     ]
 }
 export function TeamList() {
+  const { loading }  = useAuth()
+  if (loading) return <LoadingSpinner />
 
   const team = getTeam()
 
@@ -40,7 +44,7 @@ export function TeamList() {
   
   return (
     <div className="text-center">
-    <p className=" gap-6 text-xl font-semibold" text-center>Team 70</p>
+    <p className=" gap-6 text-xl font-semibold text-center">Team 70</p>
     <p className="text-zinc-400">We are developing a GUI library for Python, for use by novices and advanced users alike. It will be easy to install, being a single importable module,
         and will display in the browser.
     </p>
