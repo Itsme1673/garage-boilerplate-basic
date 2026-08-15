@@ -20,7 +20,7 @@ function getTeam(): TeamMember[]{
          about: "Developer. Styled the login page.",
         },
         {
-         name: "Sovannchetra Hav",
+         name: "Sovannchetra Hab",
          role: "Business Analyst",
          email: "s4009238@student.rmit.edu.au",
          about: "Business analyst. Got the requirements for us to build the page.",
@@ -51,7 +51,7 @@ export function TeamList() {
     <ul className="flex flex-wrap justify-center gap-6">
       {team.map((member) => (
         <li key={member.name} className=" basis-[calc(25%-12px)] aspect-square rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-          <img src={`/team/${member.name}.jpg`} alt={member.name} className="h-50 w-50 rounded-full m-4 mx-auto" onError={(e) => e.currentTarget.src='team/default-profile.svg'}/>
+          <img src={`/team/${member.name}.jpg`} alt={member.name} className="h-50 w-50 rounded-full m-4 mx-auto" onError={(e) => e.currentTarget.src='/team/default-profile.svg'}/>
           <h3 className="text-lg font-semibold" >{member.name}</h3>
           <p className="mt-1 text-sm text-zinc-400">Member role: {member.role}</p>
           <p className="mt-1 text-sm text-zinc-400">Contact details: {member.email}</p>
