@@ -10,7 +10,7 @@ export default async function TeamPage() {
   await requireAuth()
   return (
     <div className="space-y-6">
-        <PageHeader title="Teaching Team"/>
+        <PageHeader title="Project Team"/>
         <TeamList />
     </div>
   )
